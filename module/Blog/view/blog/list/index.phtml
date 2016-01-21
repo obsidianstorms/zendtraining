@@ -1,0 +1,22 @@
+<h1>Blog</h1>
+
+<?php foreach ($this->posts as $post): ?>
+<article>
+    <h1 id="post<?php echo $post->getId(); ?>"><?php echo $post->getTitle(); ?></h1>
+    <p>
+        <?php echo $post->getText(); ?>
+    </p>
+    <div>
+        <a href="<?php echo $this->url('blog/edit', array(
+            'action' => 'edit',
+            'id' => $post->getId()   //$post->id
+        )); ?>">Edit</a>
+    </div>
+    <div>
+        <a href="<?php echo $this->url('blog/delete', array(
+            'action' => 'delete',
+            'id' => $post->getId()   //$post->id
+        )); ?>">Delete</a>
+    </div>
+</article>
+<?php endforeach; ?>
